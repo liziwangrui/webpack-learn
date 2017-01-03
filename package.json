@@ -1,0 +1,22 @@
+{
+  "name": "webpack-learn",
+  "version": "1.0.0",
+  "description": "学习webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liziwangrui/webpack-learn.git"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "wangrui",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liziwangrui/webpack-learn/issues"
+  },
+  "homepage": "https://github.com/liziwangrui/webpack-learn#readme"
+}
