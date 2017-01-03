@@ -4,7 +4,8 @@
   "description": "学习webpack",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack" 
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/liziwangrui/webpack-learn/issues"
   },
-  "homepage": "https://github.com/liziwangrui/webpack-learn#readme"
+  "homepage": "https://github.com/liziwangrui/webpack-learn#readme",
+  "devDependencies": {
+    "webpack": "^1.14.0"
+  }
 }

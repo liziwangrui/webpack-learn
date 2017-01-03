@@ -1,0 +1,9 @@
+.DS_Store
+npm-debug.log
+
+.vscode
+node_modules
+
+public
+
+.idea
