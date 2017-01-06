@@ -98,3 +98,24 @@ colors:true
 historyApiFallback:true
 //不跳转 在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，所有的跳转将指向index.html
 ```
+## Loaders webpack的重中之重
+```
+Loaders就是webpack通过配置的脚本命令把相应的文件转成浏览器认识的兼容的文件，比如把新一代的js文件（es6，es7）转换为浏览器可识别的es5的js文件，就当前较火的react项目而言，loaders可以把jsx文件转换为js文件。Loaders需要单独安装，并且在webpack.config.js中的modules关键字下进行配置。
+Loaders的配置选项有：
+test:匹配loaders要处理的文件名的正则表达式（必须）
+loader: loader名（必须）
+includer/exclude:手动添加必须处理的文件（文件夹）或屏蔽不需要处理的文件（文件夹）（可选)
+query:给loaders提供额外的配置选项（可选）
+举个栗子：
+我们可以手动建一个json文件,然后安装json-loader npm install --save-dev json-loader
+在webpack.config.js中进行如下配置
+module: {//在配置文件里添加JSON loader
+    loaders: [
+      {
+        test: /\.json$/,
+        loader: "json"
+      }
+    ]
+  }
+  这样就可以把json文件转为js文件了。
+```
