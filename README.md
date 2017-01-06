@@ -9,7 +9,7 @@
 <br/>
 <p>gulp和grunt的工作方式：是你在配置文件里去配置，它会根据你的配置对指明文件进行编译，替换，压缩等任务</p>
 ### 下面进入正题 开始使用webpack
-1. 全局安装webpack 
+1. 全局安装webpack
 ```
 npm install -g webpack
 ```
@@ -28,9 +28,9 @@ npm install --save-dev webpack
 ```
 #### 进到该项目文件下，新建两个文件夹，一个是存放我们原始代码的文件，一个是用来存放准备给浏览器读取的数据（包括使用webpack生成的打包后的js文件以及一个index.html文件）
 ```
-mkdir src 
+mkdir src
 mkdir public
-cd src 
+cd src
 touch main.js
 touch greeter.js
 cd public && touch index.html
@@ -40,7 +40,7 @@ cd public && touch index.html
 #### 下面我们执行一下 node_modules/.bin/webpack app/main.js public/bundle.js  见证奇迹的时刻～～～
 #### 当然我们也可以通过配置文件使用webpack
 1. 我们在根目录下新建一个webpack.config.js文件，先进行最基础的配置，包括入口文件路径和存放打包后文件的路径
-2. 更快捷的执行打包任务的命令 
+2. 更快捷的执行打包任务的命令
 <p>如果我们每次都要执行下这么一条命令node_modules/.bin/webpack，对于开发来说无非不是一件很痛苦的事情，npm恰恰提供了这样的便利，我可以在package.json文件中进行简单的配置，就可以是冗长的命令变得简洁
 ```
 {
@@ -68,3 +68,34 @@ module.exports = {
 }
 ```
 </p>
+## webpack更快捷的执行打包任务
+```
+npm给我们提供了很方便的执行命令的方法，在package.json中进行配置
+"scripts": {
+    "start": "webpack" //配置的地方就是这里啦，相当于把npm的start命令指向webpack命令
+  }
+npm start是一个特殊的命令，如果对应的脚本不是start，需要npm run加脚本名
+```
+## webpack的强大功能（生成source map，让调试变的更加容易）
+```
+eval-source-map 是开发阶段的一个很好的选择，它在不影响项目打包速度的前提下，生成干净的source map
+打包后输出的js文件不可避免有安全隐患。
+需要在webpack.config.js中添加devtool: 'eval-source-map'
+```
+## webpack构建本地服务器
+```
+构建webpack本地服务器，让浏览器实时监测代码修改，自动刷新，提高工作效率
+这个就要依赖node.js,需要单独安装作为项目依赖
+npm install --save-dev webpack-dev-server
+devserver配置选项
+contentBase: "./public"
+//打包后的文件目录，也是浏览器读取的目录
+port: "8080"
+//浏览器监听端口
+inline:true
+//浏览器实时刷新
+colors:true
+//终端输出命令为彩色
+historyApiFallback:true
+//不跳转 在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，所有的跳转将指向index.html
+```
