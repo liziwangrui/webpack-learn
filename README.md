@@ -67,7 +67,6 @@ module.exports = {
   }
 }
 ```
-</p>
 ## webpack更快捷的执行打包任务
 ```
 npm给我们提供了很方便的执行命令的方法，在package.json中进行配置
