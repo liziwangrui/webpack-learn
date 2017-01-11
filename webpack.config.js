@@ -22,10 +22,13 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style!css'//添加对样式表的处理
+        loader: 'style!css?modules!postcss'//添加对样式表的处理
       }
     ]
   },
+  postcss: {
+    requier('autoprefixer')
+  }
   devserver: {
     contentBase: './public',
     inline: true,

@@ -7,11 +7,13 @@
 // };
 import React,{Component} from 'react';
 import config from './config.json';
+import styles from './greeter.css';
 
 class Greeter extends Component{
   render () {
+    console.log('styles',styles)
     return (
-      <div>{config.greetText}</div>
+      <div className={styles.root}>{config.greetText}</div>
       )
   }
 }

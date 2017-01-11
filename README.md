@@ -137,3 +137,46 @@ module: {//在配置文件里添加JSON loader
 }
 
 ```
+## css预处理器
+```
+css 预处理器主要是把一些特殊类型的css语句转换为浏览器可识别的css，比如这些与处理器：
+Less Loader
+Sass Loader
+Stylus Loader
+它们允许你使用类似于variables, nesting, mixins, inheritance等不存在于CSS中的特性来写CSS
+另外还有一个css的处理平台值得一提：PostCss 
+它可以帮助我们的css实现更多的功能，举例：
+使用PostCSS来为CSS代码自动添加适应不同浏览器的CSS前缀
+首先要安装postcss-loader和autoprefixer(自动添加前缀的插件)
+然后在webpack的css的loader里添加关键字postcss，并在里面声明要依赖的插件
+module.exports = {
+  devtool: 'eval-source-map',
+  entry: __dirname + "/app/main.js",
+  output: {...},
+
+  module: {
+    loaders: [
+      {
+        test: /\.json$/,
+        loader: "json"
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel'
+      },
+      {
+        test: /\.css$/,
+        loader: 'style!css?modules!postcss'
+      }
+    ]
+  },
+
+  postcss: [
+    require('autoprefixer')//调用autoprefixer插件
+  ],
+
+  devServer: {...}
+}
+配置好后，写的css就会根据caniuse里面添加不同的前缀
+```
