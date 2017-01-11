@@ -119,3 +119,21 @@ module: {//在配置文件里添加JSON loader
   }
   这样就可以把json文件转为js文件了。
 ```
+## webpack不可缺少的伴侣 babel的安装和配置
+```
+我们拿react项目做test
+```
+## webpack值得骄傲的优点  模块化处理方式
+```
+在webpack中，所有的文件都可以通过配置相应的loaders，对这些文件进行模块化处理，比如javascript,css fonts和图片等等。webpack提供两个工具处理样式表，css-loader 和 style-loader，二者处理的任务不同，css-loader使你能够使用类似@import 和 url(...)的方法实现 require()的功能,style-loader将所有的计算后的样式加入页面中，二者组合在一起使你能够把样式表嵌入webpack打包后的JS文件中。
+```
+## css module
+```
+随着前端的发展，一个项目可能就需要两个或者更多的人参与，这就导致了css样式表类名的冲突使得修改和维护变得非常复杂和困难，css modules的出现就很好的解决了这个棘手的问题，它主要是把js模块化的思想带到了css里面通过CSS模块，所有的类名，动画名默认都只作用于当前模块。Webpack从一开始就对CSS模块化提供了支持，在CSS loader中进行配置后，你所需要做的一切就是把”modules“传递都所需要的地方，然后就可以直接把CSS的类名传递到组件的代码中，且这样做只对当前组件有效，不必担心在不同的模块中具有相同的类名可能会造成的问题。
+你只需要在module里这样配置：
+{
+  test: /\.css$/,
+  loader: 'style!css?modules'//跟前面相比就在后面加上了?modules
+}
+
+```
